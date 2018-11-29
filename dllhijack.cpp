@@ -53,17 +53,25 @@ typedef struct _LDR_DATA_TABLE_ENTRY
 
 void* NtCurrentPeb()
 {
+#ifdef _WIN64
+	return (void*)__readgsqword(0x30);
+#else
 	__asm {
 		mov eax, fs:[0x30];
 	}
+#endif
 }
 
 PEB_LDR_DATA* NtGetPebLdr(void* peb)
 {
+#ifdef _WIN64
+	return (PEB_LDR_DATA*)(*(ULONGLONG*)((BYTE*)peb + 0x18));
+#else
 	__asm {
 		mov eax, peb;
 		mov eax, [eax + 0xc];
 	}
+#endif
 }
 
 /*
