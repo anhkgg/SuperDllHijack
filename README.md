@@ -38,6 +38,9 @@ BOOL APIENTRY DllMain( HMODULE hModule,
 
 技术细节请看博客：[https://anhkgg.com/dllhijack/](https://anhkgg.com/dllhijack/)
 
+[https://bbs.pediy.com/thread-248050.htm](https://bbs.pediy.com/thread-248050.htm)<br/>
+[https://www.freebuf.com/column/190855.html](https://www.freebuf.com/column/190855.html)<br/>
+
 # 支持作者
 
 ![img](wechatpay.png)
