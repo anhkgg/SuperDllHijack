@@ -6,6 +6,8 @@
 
 编写一个和劫持目标Dll同名的dll（如target.dll），原始dll改名为其他名字（如target.dll.1)，在DllMain种调用SuperDllHijack接口完成劫持。
 
+**更多使用请看`example`代码。**
+
 ```
 VOID DllHijack1(HMODULE hMod)
 {
@@ -43,4 +45,4 @@ BOOL APIENTRY DllMain( HMODULE hModule,
 
 # 支持作者
 
-![img](wechatpay.png)
+![img](pay.png)
