@@ -1,12 +1,16 @@
 # SuperDllHijack
 
-一种通用Dll劫持技术，不再需要手工导出Dll的函数接口了，so easy！
+![中文版](./README-zh_CN.md)
 
-使用方法：
+A general DLL hijack technology, don't need to manually export the same function interface of the DLL, so easy!
 
-编写一个和劫持目标Dll同名的dll（如target.dll），原始dll改名为其他名字（如target.dll.1)，在DllMain种调用SuperDllHijack接口完成劫持。
 
-**更多使用请看`example`代码。**
+Usage：
+
+Create a DLL with the same name of the hijacked DLL(such as，target.dll), and rename the hijacked DLL to other name(such as, target.dll.1), then call `SuperDllHijack` function to do the hajick work. 
+
+
+**You can see more details in the `example` code.**
 
 ```
 VOID DllHijack1(HMODULE hMod)
@@ -38,11 +42,12 @@ BOOL APIENTRY DllMain( HMODULE hModule,
 }
 ```
 
-技术细节请看博客：[https://anhkgg.com/dllhijack/](https://anhkgg.com/dllhijack/)
+This is the related articles about the technology：
 
-[https://mp.weixin.qq.com/s/Nx4C2mx94V9vhvU8Eqfobg](https://mp.weixin.qq.com/s/Nx4C2mx94V9vhvU8Eqfobg)<br/>
-[https://bbs.pediy.com/thread-248050.htm](https://bbs.pediy.com/thread-248050.htm)<br/>
+1. [https://anhkgg.com/dllhijack/](https://anhkgg.com/dllhijack/)
+2. [https://mp.weixin.qq.com/s/Nx4C2mx94V9vhvU8Eqfobg](https://mp.weixin.qq.com/s/Nx4C2mx94V9vhvU8Eqfobg)<br/>
+3. [https://bbs.pediy.com/thread-248050.htm](https://bbs.pediy.com/thread-248050.htm)<br/>
 
-# 支持作者
+# Support me
 
 ![img](pay.png)
