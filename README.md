@@ -1,6 +1,6 @@
 # SuperDllHijack
 
-![中文版](./README-zh_CN.md)
+[中文版](./README-zh_CN.md)
 
 A general DLL hijack technology, don't need to manually export the same function interface of the DLL, so easy!
 
@@ -42,7 +42,7 @@ BOOL APIENTRY DllMain( HMODULE hModule,
 }
 ```
 
-This is the related articles about the technology：
+There are the related articles about the technology：
 
 1. [https://anhkgg.com/dllhijack/](https://anhkgg.com/dllhijack/)
 2. [https://mp.weixin.qq.com/s/Nx4C2mx94V9vhvU8Eqfobg](https://mp.weixin.qq.com/s/Nx4C2mx94V9vhvU8Eqfobg)<br/>
