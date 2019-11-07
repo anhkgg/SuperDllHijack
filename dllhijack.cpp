@@ -1,5 +1,15 @@
 #include "dllhijack.h"
 #include <windows.h>
+#include <deque>
+
+class HmoduleContainer {
+ public:
+  void Push(const HMODULE &handle) { Handles.push_back(handle); };
+  ~HmoduleContainer() { for (auto handle : Handles) FreeLibrary(handle); }
+
+ private:
+  std::deque<HMODULE> Handles;
+} g_HmoduleContainer;
 
 typedef struct _UNICODE_STRING {
 	USHORT Length;
@@ -93,8 +103,9 @@ void SuperDllHijack(LPCWSTR dllname, LPCWSTR OrigDllPath)
 		memcpy(wszDllName, data->BaseDllName.Buffer, data->BaseDllName.Length);
 
 		if (!_wcsicmp(wszDllName, dllname)) {
-			HMODULE hMod = LoadLibrary(OrigDllPath);
+			HMODULE hMod = LoadLibraryW(OrigDllPath);
 			data->DllBase = hMod;
+      g_HmoduleContainer.Push(hMod);
 			break;
 		}
 	}
