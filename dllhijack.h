@@ -3,7 +3,7 @@
 #include <windows.h>
 
 /*
-dllname:		±»½Ù³ÖdllµÄÔ­Ê¼Ãû×Ö
-OrigDllPath:	±»½Ù³Ödll¸ÄÃûºóµÄÍêÕûÂ·¾¶
+dllname:		è¢«åŠ«æŒdllçš„åŸå§‹åå­—
+OrigDllPath:	è¢«åŠ«æŒdllæ”¹ååçš„å®Œæ•´è·¯å¾„
 */
 void SuperDllHijack(LPCWSTR dllname, LPWSTR OrigDllPath);
