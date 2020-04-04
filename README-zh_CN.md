@@ -6,6 +6,11 @@
 
 编写一个和劫持目标Dll同名的dll（如target.dll），原始dll改名为其他名字（如target.dll.1)，在DllMain种调用SuperDllHijack接口完成劫持。
 
+## 更新：
+
+2020年4月4日
+1. 修正x64获取peb的bug。感谢[@yves-yl](https://github.com/yves-yl)、[@kiwings](https://github.com/kiwings)、[@6769](https://github.com/6769)。
+
 **更多使用请看`example`代码。**
 
 ```

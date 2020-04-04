@@ -10,6 +10,11 @@ Usage：
 Create a DLL with the same name of the hijacked DLL(such as，target.dll), and rename the hijacked DLL to other name(such as, target.dll.1), then call `SuperDllHijack` function to do the hajick work. 
 
 
+## Update:
+
+2020-4-4
+1. fixed the bug of getting peb in x64。Thanks for [@yves-yl](https://github.com/yves-yl)、[@kiwings](https://github.com/kiwings)、[@6769](https://github.com/6769)。
+
 **You can see more details in the `example` code.**
 
 ```
