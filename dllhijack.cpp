@@ -54,7 +54,8 @@ typedef struct _LDR_DATA_TABLE_ENTRY
 void* NtCurrentPeb()
 {
 #ifdef _WIN64
-	return (void*)__readgsqword(0x30);
+	//return (void*)__readgsqword(0x30);
+    return (void*)__readgsqword(0x60);
 #else
 	__asm {
 		mov eax, fs:[0x30];
