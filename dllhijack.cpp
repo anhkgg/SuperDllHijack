@@ -1,5 +1,15 @@
 #include "dllhijack.h"
 #include <windows.h>
+#include <list>
+
+class HmoduleContainer {
+ public:
+  void Push(const HMODULE &handle) { Handles.push_back(handle); };
+  ~HmoduleContainer() { for (auto handle : Handles) FreeLibrary(handle); }
+
+ private:
+  std::list<HMODULE> Handles;
+} g_HmoduleContainer;
 
 typedef struct _UNICODE_STRING {
 	USHORT Length;
@@ -76,10 +86,10 @@ PEB_LDR_DATA* NtGetPebLdr(void* peb)
 }
 
 /*
-dllname:		±»½Ù³ÖdllµÄÔ­Ê¼Ãû×Ö
-OrigDllPath:	±»½Ù³Ödll¸ÄÃûºóµÄÍêÕûÂ·¾¶
+dllname:		è¢«åŠ«æŒdllçš„åŽŸå§‹åå­—
+OrigDllPath:	è¢«åŠ«æŒdllæ”¹ååŽçš„å®Œæ•´è·¯å¾„
 */
-void SuperDllHijack(LPCWSTR dllname, LPWSTR OrigDllPath)
+void SuperDllHijack(LPCWSTR dllname, LPCWSTR OrigDllPath)
 {
 	WCHAR wszDllName[100] = { 0 };
 	void* peb = NtCurrentPeb();
@@ -94,8 +104,9 @@ void SuperDllHijack(LPCWSTR dllname, LPWSTR OrigDllPath)
 		memcpy(wszDllName, data->BaseDllName.Buffer, data->BaseDllName.Length);
 
 		if (!_wcsicmp(wszDllName, dllname)) {
-			HMODULE hMod = LoadLibrary(OrigDllPath);
+			HMODULE hMod = LoadLibraryW(OrigDllPath);
 			data->DllBase = hMod;
+      g_HmoduleContainer.Push(hMod);
 			break;
 		}
 	}
